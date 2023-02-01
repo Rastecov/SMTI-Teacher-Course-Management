@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SMTI_Teacher_Course_Management.Models.Courses>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Authentification.userLogged != null)
+{
+    <h1>Index</h1>
+
+    <p>
+        <a class="btn btn-success mb-4" asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CourseTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalHour)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CourseTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalHour)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CourseNumber">Edit</a>
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.CourseNumber">Details</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CourseNumber">Delete</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@Html.ActionLink("Login", "Login", "Home")
+

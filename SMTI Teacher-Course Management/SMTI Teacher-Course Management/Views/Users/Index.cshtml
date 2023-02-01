@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SMTI_Teacher_Course_Management.Models.Users>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+}
+
+@if (Authentification.userLogged != null)
+{
+
+
+    <h1>Index</h1>
+
+    <p>
+        <a class="btn btn-success mb-4" asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.FirstName)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.UserId">Edit</a>
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.UserId">Details</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@Html.ActionLink("Login", "Login", "Home")
+
+
+
+
+
+
+
+

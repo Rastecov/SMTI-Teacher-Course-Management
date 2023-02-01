@@ -1,0 +1,49 @@
+﻿@model SMTI_Teacher_Course_Management.Models.CourseAssignments
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+    @if (Authentification.userLogged != null)
+    {
+        <div>
+            <h4>CourseAssignment</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CourseNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CourseNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.EmployeeNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.EmployeeNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GroupNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GroupNumber)
+                </dd>
+            </dl>
+        </div>
+    }
+
+   
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - FinalTest - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+
+</html>
